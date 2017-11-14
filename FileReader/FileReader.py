@@ -1,6 +1,7 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
+import cv2
 # ######################## Calculate File Length #################
 
 
@@ -12,10 +13,10 @@ def file_len(fname):
 
 
 # ######################## Declaring Stuff ########################
-f1 = open('test.txt', 'r+')
+f1 = open('randomTuples.txt', 'r+')
 f2 = open('output.txt', 'w+')
 
-lines = file_len('test.txt')
+lines = file_len('randomTuples.txt')
 nums = [[] for a in range(lines)]
 tinp = ''
 snums = []
@@ -28,7 +29,8 @@ for i in range(lines):
 
     tinp = line
     tinp = tinp.replace('[', ' ')
-    tinp = tinp.replace(']', ' ')   
+    tinp = tinp.replace(']', ' ')
+    tinp = tinp.replace(', ', ' ')
     tinp = tinp.replace(',', ' ')
     tinp = tinp.replace('  ', ' ')
     tinp = tinp.replace('  ', ' ')
@@ -43,16 +45,19 @@ for x in range(0, len(snums)):
             nums[rows].append(int(snums[x].strip()))
         elif snums[x].__contains__('"'):  # containing "
             fileLocs.append(snums[x].replace('"', ''))
-
     except ValueError:
-        print snums[x].strip()
+        print ''#snums[x].strip()
 
-# print fileLocs
 
 f1.close()
 
-
 # ######################### Print to File #############################
+temp1 = []
+for i in range(len(nums)):
+    if nums[i] != []:
+        temp1.append(nums[i])
+nums = temp1
+
 for i in range(len(nums)):
     if nums[i] != []:
         temp = ''
@@ -77,9 +82,6 @@ for i in range(len(nums)):
                 numsX.append(float(nums[i][x]))
             else:
                 numsY.append(float(nums[i][x]))
-
-print numsX
-print numsY
 
 
 # ########################## Graph the plot ################################
@@ -106,5 +108,16 @@ plt.ylabel("Y")
 plt.show()
 
 # ################# Plot the Rectangles onto the Images ######################
-pictures = []
+for i in range(0, len(fileLocs)):
+    image = cv2.imread(fileLocs[i], cv2.IMREAD_COLOR)
 
+    for j in range(0, len(nums[i]), 4):
+        if len(nums[i]) > 3:
+            print str(i) + '  ' + str(j)
+            point1 = (nums[i][j], nums[i][j+1])
+            point2 = (nums[i][j+2], nums[i][j+3])
+            cv2.rectangle(image, point1, point2, (155, 255, 155), 3)
+
+    cv2.imshow(fileLocs[i], image)
+    cv2.waitKey(10000)
+    cv2.destroyWindow(fileLocs[i])

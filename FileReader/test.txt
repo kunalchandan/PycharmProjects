@@ -4,8 +4,9 @@
 "images/pic04.png"[[23 45 67 89],[12, 15,16,18]];
 
 
-x1 y1 x2 y2
+x1 y1 x2 y2, index
 
+index take values in {0,1,2}
 
 image size = [180, 250] # x,y
 
