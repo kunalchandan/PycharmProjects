@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../FileReader/.idea/FileReader.iml" filepath="$PROJECT_DIR$/../FileReader/.idea/FileReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PersonalMLProjects/.idea/PersonalMLProjects.iml" filepath="$PROJECT_DIR$/../PersonalMLProjects/.idea/PersonalMLProjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ProjectsThatMakeLifeEasy/.idea/ProjectsThatMakeLifeEasy.iml" filepath="$PROJECT_DIR$/../ProjectsThatMakeLifeEasy/.idea/ProjectsThatMakeLifeEasy.iml" />
       <module fileurl="file://$PROJECT_DIR$/../RandomMathStuff/.idea/RandomMathStuff.iml" filepath="$PROJECT_DIR$/../RandomMathStuff/.idea/RandomMathStuff.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/VideoPlayback.iml" filepath="$PROJECT_DIR$/.idea/VideoPlayback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WebCrawler/.idea/WebCrawler.iml" filepath="$PROJECT_DIR$/../WebCrawler/.idea/WebCrawler.iml" />
     </modules>
   </component>
 </project>
