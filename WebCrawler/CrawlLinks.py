@@ -15,7 +15,7 @@ apt = "#123"
 country = "CANADA"
 province = "ON"
 city = "Toronto"
-postal = "M1T 1L3"
+postal = "M1T1L3"
 number = "214245682348621"
 expM = "13"
 expY = "2020"
@@ -30,12 +30,10 @@ while (datetime.datetime.utcnow().minute != minute) and (datetime.datetime.utcno
     time.sleep(0.008)
     print datetime.datetime.utcnow()
 
-def is_right_item(link):
-    return True
 
 def urls_to_visit():
     all_items_page = httplib2.Http()
-    status, all_items_page_response = all_items_page.request('http://www.supremenewyork.com/shop/new',  headers=header)
+    status, all_items_page_response = all_items_page.request('http://www.supremenewyork.com/shop/sweatshirts',  headers=header)
     list_of_urls = []
     for link in BeautifulSoup(all_items_page_response, parseOnlyThese=SoupStrainer('a')):
         if link.has_key('href'):
@@ -47,7 +45,7 @@ def urls_to_visit():
 
 urls = urls_to_visit()
 
-for i in range(len(urls)):
+for i in range(len(urls)/2):
     driver.get(urls[i])
     try:
         elem = driver.find_element_by_name("commit")

@@ -5,8 +5,8 @@ output = open('randomTuples.txt', 'w+')
 
 image = '"images/pic02.png"'
 
-imgMaxX = 250
-imgMaxY = 250
+imgMaxX = 320
+imgMaxY = 200
 
 for i in range(100):
     numtuples = random.randint(1, 10)

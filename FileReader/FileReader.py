@@ -7,9 +7,9 @@ import cv2
 
 def file_len(fname):
     with open(fname) as f:
-        for i, l in enumerate(f):
+        for fileEnumerator, l in enumerate(f):
             pass
-    return i + 1
+    return fileEnumerator + 1
 
 
 # ######################## Declaring Stuff ########################
@@ -93,8 +93,8 @@ y = numsY
 hist, xedges, yedges = np.histogram2d(x, y, bins=(4,4))
 xpos, ypos = np.meshgrid(xedges[:-1]+xedges[1:], yedges[:-1]+yedges[1:])
 
-xpos = xpos.flatten()/2.
-ypos = ypos.flatten()/2.
+xpos = xpos.flatten()/2
+ypos = ypos.flatten()/2
 zpos = np.zeros_like(xpos)
 
 dx = xedges[1] - xedges[0]
@@ -108,16 +108,20 @@ plt.ylabel("Y")
 plt.show()
 
 # ################# Plot the Rectangles onto the Images ######################
+print fileLocs
+video = cv2.VideoCapture('video/MELT.MPG')
 for i in range(0, len(fileLocs)):
-    image = cv2.imread(fileLocs[i], cv2.IMREAD_COLOR)
-
+    # image = cv2.imread(fileLocs[i], cv2.IMREAD_COLOR)
+    r, frame = video.read()
     for j in range(0, len(nums[i]), 4):
         if len(nums[i]) > 3:
             print str(i) + '  ' + str(j)
             point1 = (nums[i][j], nums[i][j+1])
             point2 = (nums[i][j+2], nums[i][j+3])
-            cv2.rectangle(image, point1, point2, (155, 255, 155), 3)
+            cv2.rectangle(frame, point1, point2, (155, 255, 155), 3)
 
-    cv2.imshow(fileLocs[i], image)
-    cv2.waitKey(10000)
-    cv2.destroyWindow(fileLocs[i])
+    cv2.imshow(str(i), frame)
+    cv2.waitKey(1000)
+    cv2.destroyWindow(str(i))
+video.release()
+cv2.destroyAllWindows()

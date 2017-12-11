@@ -7,6 +7,9 @@ import tensorflow as tf
 
 FLAGS = None
 
+while (datetime.datetime.utcnow().minute != minute) and (datetime.datetime.utcnow().second != second):
+    time.sleep(0.008)
+    print datetime.datetime.utcnow()
 
 def main(_):
     # Import data
