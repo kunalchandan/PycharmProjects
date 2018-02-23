@@ -6,7 +6,7 @@ def box(x, y, x2, y2, picu, wid):
         for j in range(y, y2+1):
             pixPos = (i + 3*j*wid)
             if ((i == y) or (i == y2)):
-                print [picu[pixPos], picu[pixPos + 1], picu[pixPos + 2]]
+                print([picu[pixPos], picu[pixPos + 1], picu[pixPos + 2]])
                 picu[pixPos + 0] = 0
                 picu[pixPos + 1] = 255
                 picu[pixPos + 2] = 255
@@ -26,7 +26,7 @@ pic = r.read_flat()
 width = pic[0]
 height = pic[1]
 picture = pic[2].tolist()
-print pic[3]
+print(pic[3])
 picO = picture
 f1.close()
 

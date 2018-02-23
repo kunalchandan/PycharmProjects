@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+from os import listdir
+from os.path import isfile, join
+
 
 def file_len(fname):
     with open(fname) as f:
@@ -10,7 +13,7 @@ def file_len(fname):
 
 for i in range(file_len('images/index.txt')):
     image = cv2.imread('images/pic0' + str(i+1) + '.png', cv2.IMREAD_COLOR)
-    print image
+    print(image)
     imgShape = np.shape(image)
     wid = imgShape[0]
     height = imgShape[1]
@@ -31,3 +34,6 @@ for i in range(file_len('images/index.txt')):
     image = cv2.imread('images/pic0' + str(i+1) + '.png', cv2.IMREAD_COLOR)
     flipped = cv2.flip(image, 1)
     cv2.imwrite(('images/flipImgs/' + str(i+1) + '.png'), flipped)
+
+
+pictures = [f for f in listdir('images/') if isfile(join('images/', f))]

@@ -46,7 +46,8 @@ for x in range(0, len(snums)):
         elif snums[x].__contains__('"'):  # containing "
             fileLocs.append(snums[x].replace('"', ''))
     except ValueError:
-        print ''#snums[x].strip()
+        print('')
+        #snums[x].strip()
 
 
 f1.close()
@@ -108,14 +109,14 @@ plt.ylabel("Y")
 plt.show()
 
 # ################# Plot the Rectangles onto the Images ######################
-print fileLocs
+print(fileLocs)
 video = cv2.VideoCapture('video/MELT.MPG')
 for i in range(0, len(fileLocs)):
     # image = cv2.imread(fileLocs[i], cv2.IMREAD_COLOR)
     r, frame = video.read()
     for j in range(0, len(nums[i]), 4):
         if len(nums[i]) > 3:
-            print str(i) + '  ' + str(j)
+            print(str(i) + '  ' + str(j))
             point1 = (nums[i][j], nums[i][j+1])
             point2 = (nums[i][j+2], nums[i][j+3])
             cv2.rectangle(frame, point1, point2, (155, 255, 155), 3)
