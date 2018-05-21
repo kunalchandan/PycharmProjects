@@ -2,7 +2,7 @@ import httplib2
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from BeautifulSoup import BeautifulSoup, SoupStrainer
+from bs4 import BeautifulSoup, SoupStrainer
 import time
 import datetime
 
@@ -28,7 +28,7 @@ binary = FirefoxBinary('usr/local/bin/geckodriver')
 driver = webdriver.Firefox()
 while (datetime.datetime.utcnow().minute != minute) and (datetime.datetime.utcnow().second != second):
     time.sleep(0.008)
-    print datetime.datetime.utcnow()
+    print(datetime.datetime.utcnow())
 
 
 def urls_to_visit():
