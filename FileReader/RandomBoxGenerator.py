@@ -1,6 +1,7 @@
 import random
 
-
+# Generates sets of random X,Y Coordinates where the second is always to the right-of and below
+# the first point. This was mainly for testing the FileReader class
 output = open('randomTuples.txt', 'w+')
 
 image = '"images/pic02.png"'

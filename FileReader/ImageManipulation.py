@@ -3,6 +3,9 @@ import numpy as np
 import glob
 import os
 
+# This essentially contains a set of functions that can be used for data augmentation.
+# Each function does as it describes. I've made the current file directory very relative and finicky
+# by accident.
 
 def rotate(imgname, angle):
     print(imgname)

@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 import pandas as pd
 
+# Same as  image manipulation, however these functions take arrays that represent images and 
+# apply the same operations on them and returns them.
 
 def rotate(array, angle):
     imgShape = np.shape(array)

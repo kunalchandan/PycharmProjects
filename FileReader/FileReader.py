@@ -2,6 +2,9 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
+
+# The purpose of this script is to read a file, extract all the X,Y values from it,
+# save them into an array and use them as bounding boxes on images.
 # ######################## Calculate File Length #################
 
 
