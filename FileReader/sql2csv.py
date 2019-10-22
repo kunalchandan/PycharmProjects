@@ -7,8 +7,8 @@ def sql2csv(f_name):
     # Read header
     head = [a.strip(' ') for a in f.readline().strip('\n').split('|')]
     # Drop linebreak
-    linebreak = f.readline().strip('\n')
-    data.append([a.strip(' ') for a in linebreak.split('|')])
+    linebreak = [a.strip(' ') for a in f.readline().strip('\n')]
+    data.append(linebreak) if len(linebreak) == len(head) else print("Beginning processing")
     for line in f:
         l = [a.strip(' ') for a in line.strip('\n').split('|')]
         if len(l) != len(head):
